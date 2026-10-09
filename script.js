@@ -56,3 +56,37 @@ document.getElementById("addBtn").onclick = function() {
   document.getElementById("quantityInput").value = "";
   document.getElementById("priceInput").value = "";
 };
+
+document.getElementById("addBtn").onclick = function() {
+  var itemVal = document.getElementById("itemInput").value;
+  var qtyVal = document.getElementById("quantityInput").value;
+  var priceVal = document.getElementById("priceInput").value;
+
+  var qtyNum = Number(qtyVal);
+  var priceNum = Number(priceVal);
+
+  var lineVal = qtyNum * priceNum;
+
+  if (priceVal.trim() === "" || isNaN(priceNum)) {
+    lineVal = NaN;
+  }
+
+  var newItem = {};
+
+  if (itemVal.trim() !== "") {
+    newItem.item = itemVal;
+  }
+
+  newItem.quantity = qtyVal;
+  newItem.price = priceVal;
+  newItem.line = lineVal;
+  newItem.note = priceVal + qtyVal;
+
+  items.push(newItem);
+
+  renderTable();
+
+  document.getElementById("itemInput").value = "";
+  document.getElementById("quantityInput").value = "";
+  document.getElementById("priceInput").value = "";
+};
