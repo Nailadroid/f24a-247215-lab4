@@ -35,3 +35,7 @@ footer {
   bottom: 0;
   width: 100%;
 }
+.form-container {
+  width: 80%;
+  margin: 20px auto;
+}
